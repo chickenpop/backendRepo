@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>list.jsp</title>
+<title>Memo</title>
 <%@ include file="/WEB-INF/views/memo/inc/asset.jsp" %>
 <style>
 
@@ -14,13 +14,17 @@
 </head>
 <body>
 	
-	<main>
-		<%@ include file="/WEB-INF/views/memo/inc/header.jsp" %>
-		<section>
 	
-			
-		</section>
-	</main>
+	<div class="container">
+		<%@ include file="/WEB-INF/views/memo/inc/header.jsp" %>
+		
+		<div class="btns">
+				<input type="button" value="메모등록" class="btn btn-secondary"
+					onclick="location.href='/jsppro/memo/add.do';"/>
+				<input type="submit" value="메모삭제" class="btn btn-primary"
+					onclick=""/>
+			</div>
+	</div>
 
 	<script>
 	
