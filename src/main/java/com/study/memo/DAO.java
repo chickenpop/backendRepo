@@ -4,18 +4,43 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 
-// ***** DAO의 업무 메소드는 하나의 업무 메소드에서 하나의 업무만 진행해야한다
 public class DAO {
 
 	private Connection conn;
-	private Statement stat;
 	private PreparedStatement pstat;
-	private ResultSet rs;
-	
+	private Statement stat;
+	private ResultSet rs; 
+
 	public DAO() {
 		conn = DBUtil.open();
+	}
+
+	public int add(DTO dto) {
+
+		try {
+			
+			System.out.println(dto.getId());
+			System.out.println(dto.getPw());
+			System.out.println(dto.getTitle());
+			System.out.println(dto.getContent());
+			
+			String sql = "insert into tblMemo(seq, id, pw, title, content, regdate) values(seqMemo.nextVal, ?, ?, ?, ?, default)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getId());
+			pstat.setString(2, dto.getPw());
+			pstat.setString(3, dto.getTitle());
+			pstat.setString(4, dto.getContent());
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("DAO.add");
+			e.printStackTrace();
+		}		
+		
+		return 0;
 	}
 	
 }
