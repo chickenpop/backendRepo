@@ -3,7 +3,9 @@ package com.study.memo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DAO {
 
@@ -38,9 +40,67 @@ public class DAO {
 		} catch (Exception e) {
 			System.out.println("DAO.add");
 			e.printStackTrace();
+		} finally {
+			
+			try {
+				pstat.close();
+				conn.close();
+			} catch (Exception e2) {
+				System.out.println("DAO.add 자원 해제 중 오류 발생");
+			}
+			
 		}		
 		
 		return 0;
+	}
+
+	public ArrayList<DTO> read() {
+
+		
+		try {
+			
+			String sql = "select * from tblMemo";
+			
+			stat = conn.createStatement();
+			
+			rs = stat.executeQuery(sql);
+			
+			ArrayList<DTO> list = new ArrayList<DTO>();
+			
+			while(rs.next()) {
+				
+				DTO dto = new DTO();
+				
+				dto.setId(rs.getString("id"));
+				dto.setRegdate(rs.getString("regdate"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+			
+				System.out.println(dto);
+				list.add(dto);
+			}
+			
+			return list;
+			
+		} catch (Exception e) {
+			System.out.println("DAO.read");
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				
+				rs.close();
+				stat.close();
+				conn.close();
+				
+			} catch (Exception e2) {
+				System.out.println("DAO.read 자원해제 중 오류 발생");
+			}
+			
+		}
+		
+		
+		return null;
 	}
 	
 }

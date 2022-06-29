@@ -17,12 +17,30 @@
 	
 	<div class="container">
 		<%@ include file="/WEB-INF/views/memo/inc/header.jsp" %>
+		<c:forEach items="${list }" var="dto">
+		<table class="table table-bordered item">
+			<tr>
+				<th>아이디</th>
+				<td>${dto.id }</td>
+				<th>날짜</th>
+				<td>${dto.regdate }</td>
+			</tr>
+			<tr>
+				<th>제목</th>
+				<td colspan="3">${dto.title }</td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td colspan="3">${dto.content }</td>
+			</tr>
+		</table>
+		</c:forEach>
 		
 		<div class="btns">
 				<input type="button" value="메모등록" class="btn btn-secondary"
 					onclick="location.href='/jsppro/memo/add.do';"/>
-				<input type="submit" value="메모삭제" class="btn btn-primary"
-					onclick=""/>
+				<input type="button" value="메모삭제" class="btn btn-danger"
+					onclick="location.href='/jsppro/memo/del.do';"/>
 			</div>
 	</div>
 
