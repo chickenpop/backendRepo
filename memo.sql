@@ -1,4 +1,3 @@
--- C:\class\server\JSPProject\memo.sql
 --
 drop table tblMemo;
 drop sequence seqMemo;
