@@ -34,14 +34,13 @@
 				<td colspan="3">${dto.content }</td>
 			</tr>
 		</table>
+		<input type="button" value="메모삭제" class="btn btn-danger"
+			onclick="location.href='/jsppro/memo/del.do?seq=${dto.seq }';"/>
 		</c:forEach>
+		<hr>
+		<input type="button" value="메모등록" class="btn btn-secondary"
+			onclick="location.href='/jsppro/memo/add.do';"/>
 		
-		<div class="btns">
-				<input type="button" value="메모등록" class="btn btn-secondary"
-					onclick="location.href='/jsppro/memo/add.do';"/>
-				<input type="button" value="메모삭제" class="btn btn-danger"
-					onclick="location.href='/jsppro/memo/del.do';"/>
-			</div>
 	</div>
 
 	<script>

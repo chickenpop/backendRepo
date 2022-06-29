@@ -71,6 +71,7 @@ public class DAO {
 				
 				DTO dto = new DTO();
 				
+				dto.setSeq(rs.getString("seq"));
 				dto.setId(rs.getString("id"));
 				dto.setRegdate(rs.getString("regdate"));
 				dto.setTitle(rs.getString("title"));
@@ -101,6 +102,38 @@ public class DAO {
 		
 		
 		return null;
+	}
+
+	public int del(String seq) {
+
+		try {
+			
+			String sql = "delete from tblMemo where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, seq);
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("DAO.del");
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				
+				pstat.close();
+				conn.close();
+				
+			} catch (Exception e2) {
+				System.out.println("DAO.del 자원해제 중 오류 발생");
+			}
+			
+		}
+		
+		
+		return 0;
 	}
 	
 }
