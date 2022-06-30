@@ -7,10 +7,14 @@
 
 ### 구현
 
-1. [메모장 만들기](https://github.com/chickenpop/backendRepo/tree/master/src/main)
+1. [메모장 만들기](https://github.com/chickenpop/backendRepo/tree/master/src/main/java/com/study/memo)
 - 메모장 등록, 조회, 삭제 기능을 구현함
-- 배운점
+- 배운점/느낀점
   - 새로운 프로젝트를 생성하고, 필요한 파일들을 직접 구성함(lombok, oracle계정, 패키지, css 등)
   - DB 연결 계정에 대해 이해하게 됨, hr계정이 어떻게 연결을 잊고 있었는데 새로 테이블을 생성할 다른 계정을 만들어 사용할 수 있게됨
   - DAO를 DB에서 가져올 데이터 처리공간, DTO를 DB정보를 담을 클래스로 만들고 직접 작성할 수 있게됨
   
+2. [갤러리 만들기]
+- 이미지 등록, 조회, 이미지 내용 수정, 이미지 삭제 기능 구현할 예정
+- 배운점/느낀점
+  - 페이지 이동이나 경로에 대해 이해를 못하고 있음, 직접해보면서 정리중이다
